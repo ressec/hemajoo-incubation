@@ -4,6 +4,7 @@
 
 # see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: false
+dist: trusty
 
 language: java
 
@@ -15,14 +16,17 @@ services:
   - postgresql
 
 addons:
-  - postgresql: "9.6"
+  postgresql: "9.6"
 
+# Set some folders to be cached to increase the build speed. 
 cache:
   - $HOME/.m2
   - target/
 
 before_script:
 #after_script: "cp hemajoo-incubation-parent/etc/deploy-settings.xml $HOME/.m2/settings.xml && mvn deploy -f hemajoo-incubation-parent/pom.xml"
+
+# Build script is a Maven command.
 script: mvn clean package -f hemajoo-incubation-parent/pom.xml
 
 deploy:
