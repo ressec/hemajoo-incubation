@@ -27,10 +27,9 @@ deploy:
   skip_cleanup: false
   on:
     # Set 'tags' to:
-    # . 'true'  which will force the deployment of the artifact after a successful build only when the commit is tagged. So even if a merge request to 'master' is
-    #           successful, the built artifact will not be deployed to the repository.
-    # . 'false' which will force the deployment of the artifact after a successful build only when merged on the 'master' branch.
-    tags: false
+    # . 'true'  will force the deployment of the artifact after a successful build only when the commit is tagged. So even if a merge request to 'master' is successful, the built artifact will not be deployed to the repository.
+    # . 'false' will force the deployment of the artifact after a successful build only when merged on the 'master' branch.
+    tags: true
 
 notifications:
   email:
