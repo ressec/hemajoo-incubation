@@ -6,7 +6,7 @@
 	<artifactId>parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Hemajoo Incubation Software.</name>
+	<name>Hemajoo Incubation Software</name>
 
 
 	<licenses>
