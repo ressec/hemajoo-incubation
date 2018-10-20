@@ -6,10 +6,7 @@
 sudo: false
 
 # Ubuntu - Fast-boot environment.
-#dist: trusty
-
-# Windows environemnt.
-os: windows
+dist: trusty
 
 language: java
 
