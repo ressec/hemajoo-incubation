@@ -418,5 +418,6 @@
 		
 	<modules>
 		<module>../hemajoo-incubation-akka</module>
+		<module>../hemajoo-incubation-jme</module>
 	</modules>
 </project>
