@@ -416,4 +416,7 @@
 	
 	
 		
+	<modules>
+		<module>../hemajoo-incubation-akka</module>
+	</modules>
 </project>
