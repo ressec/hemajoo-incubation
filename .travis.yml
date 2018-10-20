@@ -1,7 +1,14 @@
+#
+# Travis CI build file for Hemajoo Incubation Software (HIS).
+#
+
+# see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: false
 
-language: 
-  - java
+# Ubuntu - Fast-boot environment.
+dist: trusty
+
+language: java
 
 jdk: 
   - oraclejdk8
@@ -11,14 +18,17 @@ services:
   - postgresql
 
 addons:
-  - postgresql: "9.6"
+  postgresql: "9.6"
 
+# Set some folders to be cached to increase the build speed. 
 cache:
   - $HOME/.m2
-  #- target/
+  - target/
 
 before_script:
 #after_script: "cp hemajoo-incubation-parent/etc/deploy-settings.xml $HOME/.m2/settings.xml && mvn deploy -f hemajoo-incubation-parent/pom.xml"
+
+# Build script is a Maven command.
 script: mvn clean package -f hemajoo-incubation-parent/pom.xml
 
 deploy:
@@ -41,6 +51,5 @@ notifications:
     on_failure: always
   slack:
     rooms:
-      # hemajoo is the Slack workplace
-      # travis-incubation is the channel
+      # 'hemajoo' is the Slack workplace and 'travis-incubation' is the Slack channel.
       - hemajoo:lOkFRXlNg0sP7EhvnGUq3gZJ#travis-incubation
