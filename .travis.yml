@@ -4,7 +4,12 @@
 
 # see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: false
-dist: trusty
+
+# Ubuntu - Fast-boot environment.
+#dist: trusty
+
+# Windows environemnt.
+os: windows
 
 language: java
 
