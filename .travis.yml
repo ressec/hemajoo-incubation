@@ -1,17 +1,17 @@
+# see https://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure
 sudo: false
 
-language: 
-  - java
+language: java
 
 jdk: 
-  - oraclejdk8
+	- oraclejdk8
 
 services:
   - docker
-  - postgresql
+  #- postgresql
 
 addons:
-  - postgresql: "9.6"
+  #- postgresql: "9.6"
 
 cache:
   - $HOME/.m2
@@ -29,7 +29,7 @@ deploy:
     # Set 'tags' to:
     # . 'true'  will force the deployment of the artifact after a successful build only when the commit is tagged. So even if a merge request to 'master' is successful, the built artifact will not be deployed to the repository.
     # . 'false' will force the deployment of the artifact after a successful build only when merged on the 'master' branch.
-    tags: false
+    tags: true
   only:
     - master
 
