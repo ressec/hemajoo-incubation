@@ -17,7 +17,7 @@ cache:
   - $HOME/.m2
   #- target/
 
-#before_script:
+before_script:
 #after_script: "cp hemajoo-incubation-parent/etc/deploy-settings.xml $HOME/.m2/settings.xml && mvn deploy -f hemajoo-incubation-parent/pom.xml"
 script: mvn clean package -f hemajoo-incubation-parent/pom.xml
 
@@ -26,7 +26,6 @@ deploy:
   script: "cp hemajoo-incubation-parent/etc/deploy-settings.xml $HOME/.m2/settings.xml && mvn deploy -f hemajoo-incubation-parent/pom.xml"
   skip_cleanup: false
   on:
-	repo: ressec/hemajoo-incubation
     # Set 'tags' to:
     # . 'true'  will force the deployment of the artifact after a successful build only when the commit is tagged. So even if a merge request to 'master' is successful, the built artifact will not be deployed to the repository.
     # . 'false' will force the deployment of the artifact after a successful build only when merged on the 'master' branch.
