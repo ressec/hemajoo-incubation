@@ -25,13 +25,8 @@ cache:
   - $HOME/.m2
   - target/
 
-# Specify a display with xvfb for UI testing
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-	
-#after_script: "cp hemajoo-incubation-parent/etc/deploy-settings.xml $HOME/.m2/settings.xml && mvn deploy -f hemajoo-incubation-parent/pom.xml"
+after_script: 
 
 # Build script is a Maven command.
 script: mvn clean package -f hemajoo-incubation-parent/pom.xml
