@@ -25,8 +25,8 @@ cache:
   - $HOME/.m2
   - target/
 
-before_script:
-after_script: 
+#before_script:
+#after_script: 
 
 # Build script is a Maven command.
 script: mvn clean package -f hemajoo-incubation-parent/pom.xml
