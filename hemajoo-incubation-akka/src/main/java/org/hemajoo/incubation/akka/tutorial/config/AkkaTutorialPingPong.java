@@ -38,7 +38,7 @@ public final class AkkaTutorialPingPong
 	 * <hr>
 	 * @param arguments Arguments passed on the command line.
 	 */
-	@SuppressWarnings({ "unused", "nls" })
+	@SuppressWarnings("nls")
 	public static void main(String[] arguments)
 	{
 		// Create an actor system named.
