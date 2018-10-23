@@ -170,6 +170,10 @@
 		<artifactId>owner</artifactId>
 	</dependency>
 
+	<dependency>
+		<groupId>com.typesafe.akka</groupId>
+		<artifactId>akka-actor_2.12</artifactId>
+	</dependency>
   </dependencies>
 
   <url>https://github.com/ressec/hemajoo-incubation</url>
