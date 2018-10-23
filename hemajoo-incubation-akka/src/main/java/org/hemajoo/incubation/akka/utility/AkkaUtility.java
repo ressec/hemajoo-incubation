@@ -13,25 +13,41 @@ package org.hemajoo.incubation.akka.utility;
 
 import java.util.Random;
 
+/**
+ * Utility class for the Akka tutorials.
+ * <hr>
+ * @author Resse Christophe - Hemajoo Corp.
+ * @version 1.0.0
+ */
 public final class AkkaUtility
 {
 	/**
-	 * 
-	 * @param min
-	 * @param max
-	 * @return
+	 * A pseudo-random number generator.
+	 */
+	private static Random random = new Random();
+
+	/**
+	 * Private constructor to avoid instantiation.
+	 */
+	private AkkaUtility()
+	{
+	}
+
+	/**
+	 * Generates a pseudo-random number given a minimum and maximum value.
+	 * <hr>
+	 * @param min Minimum value to generate.
+	 * @param max Maximum value to generate.
+	 * @return A pseudo-random number.
 	 */
 	@SuppressWarnings("nls")
-	private static int getRandomNumberInRange(int min, int max)
+	public static final int getRandomNumberInRange(int min, int max)
 	{
 		if (min >= max)
 		{
 			throw new IllegalArgumentException("max must be greater than min");
 		}
 
-		Random r = new Random();
-
-		return r.nextInt(max - min + 1) + min;
+		return random.nextInt(max - min + 1) + min;
 	}
-
 }

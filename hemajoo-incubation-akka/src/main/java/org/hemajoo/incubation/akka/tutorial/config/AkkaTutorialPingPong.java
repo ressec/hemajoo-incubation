@@ -31,14 +31,14 @@ public final class AkkaTutorialPingPong
 	 * Actor system name.
 	 */
 	@SuppressWarnings("nls")
-	private final static String ACTOR_SYSTEM_NAME = "org_hemajoo_incubation_akka_tutorial_1";
+	private static final String ACTOR_SYSTEM_NAME = "org_hemajoo_incubation_akka_tutorial_1";
 
 	/**
 	 * Main tutorial entry point method.
 	 * <hr>
 	 * @param arguments Arguments passed on the command line.
 	 */
-	@SuppressWarnings({ "unused", "nls" })
+	@SuppressWarnings("nls")
 	public static void main(String[] arguments)
 	{
 		// Create an actor system named.
@@ -46,7 +46,7 @@ public final class AkkaTutorialPingPong
 
 		// Create 2 PingPong actor instances.
 		final ActorRef ping = system.actorOf(Props.create(PingPong.class, () -> new PingPong("ping", "pong")), "ping");
-		final ActorRef pong = system.actorOf(Props.create(PingPong.class, () -> new PingPong("pong", "ping")), "pong");
+		system.actorOf(Props.create(PingPong.class, () -> new PingPong("pong", "ping")), "pong");
 
 		// Send an initial message to the ping actor instance to initiate the exchange of messages.
 		final Inbox inbox = Inbox.create(system);
