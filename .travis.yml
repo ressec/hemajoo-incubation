@@ -8,7 +8,10 @@ sudo: false
 # Ubuntu - Fast-boot environment.
 dist: trusty
 
+# Language
 language: java
+
+install: true
 
 jdk: 
   - oraclejdk8
@@ -27,6 +30,7 @@ addons:
 # Set some folders to be cached to increase the build speed. 
 cache:
   - $HOME/.m2
+  - $HOME/.sonar/cache
   - target/
 
 #before_script:
