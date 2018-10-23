@@ -33,7 +33,13 @@ public final class PingPong extends AbstractActor
 	/**
 	 * Akka logger.
 	 */
-	private final LoggingAdapter LOGGER = Logging.getLogger(getContext().system(), this);
+	private final LoggingAdapter logger = Logging.getLogger(getContext().system(), this);
+
+	/**
+	 * Actor lookup path.
+	 */
+	@SuppressWarnings("nls")
+	private static final String ACTOR_PATH = "/user/";
 
 	/**
 	 * Actor name
@@ -62,24 +68,31 @@ public final class PingPong extends AbstractActor
 		this.otherName = otherName;
 	}
 
+	@SuppressWarnings("nls")
 	@Override
 	public Receive createReceive()
 	{
 		if (otherRef == null)
 		{
-			otherRef = getContext().actorSelection("/user/" + otherName);
+			otherRef = getContext().actorSelection(ACTOR_PATH + otherName);
 		}
 
 		return receiveBuilder()
 				.match(MessagePingPong.class, message -> onMessagePingPong(message))
-				.matchAny(o -> LOGGER.info("received unknown message"))
+				.matchAny(o -> logger.info("{} received an unknown message!", actorName))
 				.build();
 	}
 
+	/**
+	 * Invoked each time this actor receives a message.
+	 * <hr>
+	 * @param message Message to process.
+	 */
+	@SuppressWarnings("nls")
 	private final void onMessagePingPong(final MessagePingPong message)
 	{
 		// As we received a 'ping' message, let's send to counter part a 'pong' one.
-		LOGGER.info("Received {} message", message.getType());
+		logger.info("{} received {} message", actorName, message.getType());
 
 		switch (message.getType())
 		{
@@ -92,7 +105,7 @@ public final class PingPong extends AbstractActor
 				break;
 
 			default:
-				LOGGER.error("Received {} message. Not able to process!", message.getType());
+				logger.error("{} received {} message. Unable to process a ping pong message of type {}", actorName, message.getClass().getSimpleName(), message.getType());
 				break;
 		}
 	}
