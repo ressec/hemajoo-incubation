@@ -19,6 +19,10 @@ services:
 
 addons:
   postgresql: "9.6"
+  sonarcloud:
+      organization: "ressec-github"
+      token:
+        secure: "d6f26ec45036de7342fa23cf7236910afb6b32ea"
 
 # Set some folders to be cached to increase the build speed. 
 cache:
@@ -29,7 +33,9 @@ cache:
 #after_script: 
 
 # Build script is a Maven command.
-script: mvn clean package -f hemajoo-incubation-parent/pom.xml
+script: 
+	- mvn clean package -f hemajoo-incubation-parent/pom.xml
+	- sonar-scanner -X -Dsonar.projectVersion=0.1.0
 
 deploy:
   provider: script
