@@ -11,7 +11,7 @@ dist: trusty
 # Language
 language: java
 
-install: true
+#install: true
 
 jdk: 
   - oraclejdk8
@@ -38,9 +38,10 @@ cache:
 
 # Build script is a Maven command.
 #script: mvn clean package -f hemajoo-incubation-parent/pom.xml
+#  - mvn clean package sonar:sonar -f hemajoo-incubation-parent/pom.xml 
 # JaCoCo is used to have code coverage, the agent has to be activated
 scipt:
-  - mvn clean package sonar:sonar -f hemajoo-incubation-parent/pom.xml 
+  - mvn clean package -f hemajoo-incubation-parent/pom.xml 
 
 deploy:
   provider: script
