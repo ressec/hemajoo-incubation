@@ -439,6 +439,7 @@
 	<modules>
 		<module>../hemajoo-incubation-akka</module>
 		<module>../hemajoo-incubation-jme</module>
-		<module>../../../../Workspace/Heliosphere/hemajoo-incubation-javafx</module>
+		
+		<module>../hemajoo-incubation-javafx</module>
 	</modules>
 </project>

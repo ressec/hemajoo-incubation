@@ -7,7 +7,7 @@
   		<groupId>org.hemajoo.incubation</groupId>
   		<artifactId>parent</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
-  		<relativePath>../../../Repository/git/hemajoo-incubation/hemajoo-incubation-parent</relativePath>
+  		<relativePath>../hemajoo-incubation-parent</relativePath>
   	</parent>
 
 	<properties>
