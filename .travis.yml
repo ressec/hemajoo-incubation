@@ -9,19 +9,23 @@ sudo: false
 dist: trusty
 
 # Language
-language: java
+language: 
+	- java
 
 #install: true
 
 jdk: 
-  - oraclejdk8
+	- oraclejdk8
 
 services:
-  - docker
-  - postgresql
+	- docker
+	- postgresql
+
+before_install:
+	- cd java
 
 addons:
-  postgresql: "9.6"
+	postgresql: "9.6"
 #  sonarcloud:
 #      organization: "ressec-github"
 #      token:
@@ -29,9 +33,9 @@ addons:
 
 # Set some folders to be cached to increase the build speed. 
 cache:
-  - $HOME/.m2
+	- $HOME/.m2
 #  - $HOME/.sonar/cache
-  - target/
+	- target/
 
 #before_script:
 #after_script: sonar-scanner -X -Dsonar.projectVersion=0.1.0
@@ -40,27 +44,28 @@ cache:
 #script: mvn clean package -f hemajoo-incubation-parent/pom.xml
 #  - mvn clean package sonar:sonar -f hemajoo-incubation-parent/pom.xml 
 # JaCoCo is used to have code coverage, the agent has to be activated
-scipt: mvn clean package -f hemajoo-incubation-parent/pom.xml 
+scipt: 
+	- mvn clean package -f hemajoo-incubation-parent/pom.xml 
 
 deploy:
-  provider: script
-  script: "cp hemajoo-incubation-parent/etc/deploy-settings.xml $HOME/.m2/settings.xml && mvn deploy -f hemajoo-incubation-parent/pom.xml"
-  skip_cleanup: false
-  on:
+	provider: script
+	script: "cp hemajoo-incubation-parent/etc/deploy-settings.xml $HOME/.m2/settings.xml && mvn deploy -f hemajoo-incubation-parent/pom.xml"
+	skip_cleanup: false
+  	on:
     # Set 'tags' to:
     # . 'true'  will force the deployment of the artifact after a successful build only when the commit is tagged. So even if a merge request to 'master' is successful, the built artifact will not be deployed to the repository.
     # . 'false' will force the deployment of the artifact after a successful build only when merged on the 'master' branch.
-    tags: false
-  only:
-    - master
+    	tags: false
+		only:
+    		- master
 
 notifications:
-  email:
-    recipients:
-    - christophe.resse@gmail.com
-    on_success: change
-    on_failure: always
-  slack:
-    rooms:
-      # 'hemajoo' is the Slack workplace and 'travis-incubation' is the Slack channel.
-      - hemajoo:lOkFRXlNg0sP7EhvnGUq3gZJ#travis-incubation
+	email:
+    	recipients:
+    		- christophe.resse@gmail.com
+    	on_success: change
+    	on_failure: always
+	slack:
+    	rooms:
+      	    # 'hemajoo' is the Slack workplace and 'travis-incubation' is the Slack channel.
+      		- hemajoo:lOkFRXlNg0sP7EhvnGUq3gZJ#travis-incubation
