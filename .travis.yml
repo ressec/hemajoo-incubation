@@ -26,7 +26,7 @@ cache:
   - target/
 
 #before_script:
-#after_script: 
+after_script: sonar-scanner
 
 # Build script is a Maven command.
 script: mvn clean package -f hemajoo-incubation-parent/pom.xml
