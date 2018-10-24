@@ -17,19 +17,26 @@ services:
   - docker
   - postgresql
 
-addons:
+addons: 
   postgresql: "9.6"
+  sonarcloud:
+    organization: "ressec-github"
+  token:
+    secure: "${SONAR_TOKEN}"
 
 # Set some folders to be cached to increase the build speed. 
 cache:
-  - $HOME/.m2
-  - target/
+  - "$HOME/.m2"
+  - "target/"
 
 #before_script:
-#after_script: 
+#after_script: sonar-scanner
+
+# mvn clean package sonar:sonar -f hemajoo-incubation-parent/pom.xml
 
 # Build script is a Maven command.
-script: mvn clean package -f hemajoo-incubation-parent/pom.xml
+script: 
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -X -f hemajoo-incubation-parent/pom.xml
 
 deploy:
   provider: script
@@ -40,8 +47,6 @@ deploy:
     # . 'true'  will force the deployment of the artifact after a successful build only when the commit is tagged. So even if a merge request to 'master' is successful, the built artifact will not be deployed to the repository.
     # . 'false' will force the deployment of the artifact after a successful build only when merged on the 'master' branch.
     tags: false
-  only:
-    - master
 
 notifications:
   email:
