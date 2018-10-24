@@ -22,10 +22,10 @@ services:
 
 addons:
   postgresql: "9.6"
-  sonarcloud:
-      organization: "ressec-github"
-      token:
-        secure: "d6f26ec45036de7342fa23cf7236910afb6b32ea"
+#  sonarcloud:
+#      organization: "ressec-github"
+#      token:
+#        secure: "d6f26ec45036de7342fa23cf7236910afb6b32ea"
 
 # Set some folders to be cached to increase the build speed. 
 cache:
@@ -40,8 +40,7 @@ cache:
 #script: mvn clean package -f hemajoo-incubation-parent/pom.xml
 #  - mvn clean package sonar:sonar -f hemajoo-incubation-parent/pom.xml 
 # JaCoCo is used to have code coverage, the agent has to be activated
-scipt:
-  - mvn clean package -f hemajoo-incubation-parent/pom.xml 
+scipt: mvn clean package -f hemajoo-incubation-parent/pom.xml 
 
 deploy:
   provider: script
