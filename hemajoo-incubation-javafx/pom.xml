@@ -1,14 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>jme</artifactId>
-  <name>Hemajoo Incubation Software for jMonkeyEngine</name>
-  <parent>
-  	<groupId>org.hemajoo.incubation</groupId>
-  	<artifactId>parent</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
-  	<relativePath>../hemajoo-incubation-parent</relativePath>
-  </parent>
-  
+	<modelVersion>4.0.0</modelVersion>
+  	<artifactId>javafx</artifactId>
+  	<name>Hemajoo Incubation Software for JavaFX</name>
+  	
+  	<parent>
+  		<groupId>org.hemajoo.incubation</groupId>
+  		<artifactId>parent</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<relativePath>../hemajoo-incubation-parent</relativePath>
+  	</parent>
+
+	<properties>
+		<project.version.javafx>9.9.9</project.version.javafx>
+	</properties>
+
   <dependencies>
   
   	<dependency>
@@ -56,7 +61,7 @@
 
   <url>https://github.com/ressec/hemajoo-incubation</url>
   <inceptionYear>2018</inceptionYear>
-  <description>Project of the Hemajoo Incubation Software (HIS) dedicated to the jMonkey Engine framework.</description>
+  <description>Project of the Hemajoo Incubation Software (HIS) dedicated to the JavaFX framework.</description>
   <organization>
   	<name>Hemajoo</name>
   	<url>https://github.com/ressec/hemajoo-incubation</url>
