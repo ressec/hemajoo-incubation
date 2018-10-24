@@ -22,6 +22,15 @@ import akka.actor.Props;
 
 /**
  * A tutorial to demonstrate how easy it is to create a simple actor system.
+ * <p>
+ * This tutorial is part of a series to demonstrate the use of the {@code Akka} library regarding several topics.
+ * <p>
+ * The purpose of the {@link AkkaTutorialPingPong} tutorial is to create a simple actor system with two actor instances.
+ * These instances called {@code ping} and {@code pong} send a simple {@code PingPong} message between each other. As soon
+ * as {@code ping} receives a {@code PingPong} message, it will log it and send send to {@code pong} a {@code PingPong}
+ * message and so on.
+ * <p>
+ * The two actor instances are running on the same JVM.
  * <hr>
  * @author Resse Christophe - Hemajoo Corp.
  */
