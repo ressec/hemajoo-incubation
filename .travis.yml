@@ -30,7 +30,7 @@ addons:
 # Set some folders to be cached to increase the build speed. 
 cache:
   - $HOME/.m2
-  - $HOME/.sonar/cache
+#  - $HOME/.sonar/cache
   - target/
 
 #before_script:
