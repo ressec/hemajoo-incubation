@@ -145,24 +145,12 @@ public class TutorialApplication extends Application
 	}
 
 	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
+	 * The application entry point.
+	 * <hr>
+	 * @param arguments the arguments passed on the command line.
 	 */
-	@SuppressWarnings("nls")
-	public static void main(String[] args)
+	public static void main(String[] arguments)
 	{
-		try
-		{
-			java.net.URL iconURL = TutorialApplication.class.getResource("/image/zorpia_512x512.png");
-			java.awt.Image image = new javax.swing.ImageIcon(iconURL).getImage();
-			com.apple.eawt.Application.getApplication().setDockIconImage(image);
-		}
-		catch (Exception e)
-		{
-			// Won't work on Windows or Linux.
-		}
-
-		launch(args);
+		launch(arguments);
 	}
 }
