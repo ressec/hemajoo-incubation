@@ -12,6 +12,9 @@
  */
 package org.hemajoo.incubation.javafx.tutorial.desktop.view;
 
+import java.io.File;
+
+import org.hemajoo.incubation.javafx.tutorial.desktop.TutorialApplication;
 import org.hemajoo.incubation.javafx.tutorial.desktop.model.Tutorial;
 
 import javafx.collections.FXCollections;
@@ -22,6 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -80,6 +84,11 @@ public class TutorialEditDialogController
 	private Tutorial tutorial;
 
 	/**
+	 * The main application.
+	 */
+	private TutorialApplication application;
+
+	/**
 	 * Pre-defined list of tutorial domains.
 	 */
 	@SuppressWarnings("nls")
@@ -107,6 +116,16 @@ public class TutorialEditDialogController
 	public void setDialogStage(Stage stage)
 	{
 		this.dialogStage = stage;
+	}
+
+	/**
+	 * Sets the application.
+	 * <hr>
+	 * @param application The application.
+	 */
+	public void setApplication(TutorialApplication application)
+	{
+		this.application = application;
 	}
 
 	/**
@@ -163,6 +182,27 @@ public class TutorialEditDialogController
 	private void handleCancel()
 	{
 		dialogStage.close();
+	}
+
+	/**
+	 * Called when the {@code Choose File} button is clicked.
+	 */
+	@SuppressWarnings("nls")
+	@FXML
+	private void handleChooseFile()
+	{
+		FileChooser fileChooser = new FileChooser();
+
+		// Set extension filter
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Java Files (*.java)", "*.java");
+		fileChooser.getExtensionFilters().add(extFilter);
+
+		// Show save file dialog
+		File file = fileChooser.showOpenDialog(application.getPrimaryStage());
+		if (file != null)
+		{
+			int i = 0;
+		}
 	}
 
 	/**
