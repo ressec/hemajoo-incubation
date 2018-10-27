@@ -186,7 +186,7 @@ public class TutorialContentController
 		{
 			// Load the FXML file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TutorialApplication.class.getResource("view/TutorialEditDialog.fxml"));
+			loader.setLocation(TutorialApplication.class.getResource("/fxml/TutorialEditDialog.fxml"));
 			AnchorPane page = loader.load();
 
 			// Create the dialog Stage.

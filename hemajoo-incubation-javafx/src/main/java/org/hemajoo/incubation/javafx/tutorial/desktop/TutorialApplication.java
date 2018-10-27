@@ -84,7 +84,7 @@ public class TutorialApplication extends Application
 		{
 			// Load root layout from FXML file.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TutorialApplication.class.getResource("view/RootLayout.fxml"));
+			loader.setLocation(TutorialApplication.class.getResource("/fxml/RootLayout.fxml"));
 			rootLayout = loader.load();
 
 			// Show the scene containing the root layout.
@@ -108,7 +108,7 @@ public class TutorialApplication extends Application
 		{
 			// Load the tutorial content view.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TutorialApplication.class.getResource("view/TutorialContent.fxml"));
+			loader.setLocation(TutorialApplication.class.getResource("/fxml/TutorialContent.fxml"));
 			AnchorPane personOverview = loader.load();
 
 			// Set person overview into the center of root layout.
