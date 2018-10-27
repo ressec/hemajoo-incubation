@@ -200,6 +200,7 @@ public class TutorialContentController
 
 			// Set the person into the controller.
 			TutorialEditDialogController controller = loader.getController();
+			controller.setApplication(application);
 			controller.setDialogStage(dialogStage);
 			controller.setTutorial(tutorial);
 
