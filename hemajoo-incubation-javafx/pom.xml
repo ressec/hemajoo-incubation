@@ -11,7 +11,7 @@
   	</parent>
 
 	<properties>
-		<project.version.javafx>9.9.9</project.version.javafx>
+		<project.version.javafx>8.8.3</project.version.javafx>
 		<application.dist>${project.build.directory}/distribution</application.dist>
 	</properties>
 
@@ -22,7 +22,7 @@
 		<plugin>
 		    <groupId>com.zenjava</groupId>
 		    <artifactId>javafx-maven-plugin</artifactId>
-		    <version>8.8.3</version>
+		    <version>${project.version.javafx}</version>
 		    <configuration>
 		        <vendor>Hemajoo</vendor>
 		        <mainClass>org.hemajoo.incubation.javafx.tutorial.desktop.TutorialApplication</mainClass>
