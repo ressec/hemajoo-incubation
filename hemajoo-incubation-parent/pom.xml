@@ -53,6 +53,7 @@
 	</ciManagement>
 
 	<properties>
+		<project.java.version>10</project.java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.directory.benchmark>${basedir/benchmark}</project.directory.benchmark>
 		<project.directory.run>${basedir/run}</project.directory.run>
@@ -67,19 +68,20 @@
 
 			<plugins>
 
-				<!-- COMPILATION -->
+				<!-- COMPILATION : Used to compile the sources of your project. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.6.1</version>
+					<version>3.8.0</version>
 					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
+						<source>${project.java.version}</source>
+						<target>${project.java.version}</target>
 						<encoding>UTF-8</encoding>
+<!-- 						<release>11</release> -->
 					</configuration>
 				</plugin>
 
-				<!-- SOURCES -->
+				<!-- SOURCES : Used to create a jar archive of the source files of the current project. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
@@ -94,7 +96,7 @@
 					</executions>
 				</plugin>
 
-				<!-- JAVADOC -->
+				<!-- JAVADOC : Used to create a jar archive of the javadoc for the project. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
@@ -126,7 +128,7 @@
 					</executions>
 				</plugin>
 
-				<!-- SITE -->
+				<!-- SITE : Used to generate a site for the project. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
@@ -145,14 +147,14 @@
 					</executions>
 				</plugin>
 
-				<!-- SUREFIRE -->
+				<!-- SUREFIRE : Used for running the unit tests of the project. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.20</version>
 				</plugin>
 
-				<!-- JAR: Create a jar of the test classes. -->
+				<!-- JAR: Used to create a jar of the test classes for the project. -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -167,7 +169,7 @@
 					</executions>
 				</plugin>
 
-				<!-- NATIVEDEPENDENCIES: Unpack every dependency with a classifier beginning with 'natives-'. -->
+				<!-- NATIVEDEPENDENCIES: Used to unpack every dependency with a classifier beginning with 'natives-'. -->
 				<plugin>
 					<groupId>com.googlecode.mavennatives</groupId>
 					<artifactId>maven-nativedependencies-plugin</artifactId>
