@@ -430,7 +430,7 @@
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.2</version>
 			</dependency>
-			
+
 		</dependencies>
 	</dependencyManagement>
 	<url>https://github.com/ressec/hemajoo-incubation</url>
