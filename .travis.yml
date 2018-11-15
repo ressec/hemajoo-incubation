@@ -36,7 +36,7 @@ cache:
 
 # Build script is a Maven command.
 script: 
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -X -f hemajoo-incubation-parent/pom.xml
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -f hemajoo-incubation-parent/pom.xml
 
 deploy:
   provider: script
