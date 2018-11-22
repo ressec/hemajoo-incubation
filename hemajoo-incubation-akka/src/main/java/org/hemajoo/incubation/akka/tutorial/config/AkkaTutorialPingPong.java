@@ -23,16 +23,20 @@ import akka.actor.Props;
 /**
  * A tutorial to demonstrate how easy it is to create a simple actor system.
  * <p>
- * This tutorial is part of a series to demonstrate the use of the {@code Akka} library regarding several topics.
+ * This tutorial is part of a series to demonstrate the use of the {@code Akka} library regarding
+ * several topics.
  * <p>
- * The purpose of the {@link AkkaTutorialPingPong} tutorial is to create a simple actor system with two actor instances.
- * These instances called {@code ping} and {@code pong} send a simple {@code PingPong} message between each other. As soon
- * as {@code ping} receives a {@code PingPong} message, it will log it and send send to {@code pong} a {@code PingPong}
- * message and so on.
+ * The purpose of the {@link AkkaTutorialPingPong} tutorial is to create a simple actor system with
+ * two actor instances.<br>
+ * These instances called {@code ping} and {@code pong} send a simple {@code PingPong} message
+ * between each other.<br>
+ * As soon as actor {@code ping} receives a {@code PingPong} message, it will log it and send to
+ * actor {@code pong} a {@code PingPong} message and so on.
  * <p>
+ * <b>Info:</b>
  * The two actor instances are running on the same JVM.
  * <hr>
- * @author Resse Christophe - Hemajoo Corp.
+ * @author Resse Christophe - Hemajoo Ltd.
  */
 public final class AkkaTutorialPingPong
 {
@@ -50,10 +54,10 @@ public final class AkkaTutorialPingPong
 	@SuppressWarnings("nls")
 	public static void main(String[] arguments)
 	{
-		// Create an actor system named.
+		// Create an actor system with a specific name.
 		final ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
 
-		// Create 2 PingPong actor instances.
+		// Create two (2) PingPong actor instances.
 		final ActorRef ping = system.actorOf(Props.create(PingPong.class, () -> new PingPong("ping", "pong")), "ping");
 		system.actorOf(Props.create(PingPong.class, () -> new PingPong("pong", "ping")), "pong");
 

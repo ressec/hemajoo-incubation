@@ -1,6 +1,6 @@
 # Hemajoo-Incubation 
 
-Hemajoo Incubation Software (HIS) is the repository where Hemajoo can evaluate third-party libraries, projects, tools, etc.
+Hemajoo Incubation Software (HIS) is the repository where Hemajoo can evaluate third-party libraries, projects, tools and frameworks.
 
 ## Build Status
 ![Build Status](https://travis-ci.com/ressec/hemajoo-incubation.svg?branch=master) ![Build Status](https://sonarcloud.io/api/project_badges/measure?project=org.hemajoo.incubation%3Aparent&metric=ncloc)
